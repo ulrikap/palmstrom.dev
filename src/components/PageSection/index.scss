@@ -1,0 +1,62 @@
+.Pagesection {
+  justify-self: stretch;
+  section,
+  a {
+    transition: 0.2s ease;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    transition: 0.3s;
+    cursor: pointer;
+
+    h1 {
+      font-size: 40px;
+      font-weight: 200;
+      margin-left: 150px;
+    }
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+
+  .disabled {
+    cursor: default;
+    &:hover {
+      background: none;
+      transform: none;
+    }
+  }
+
+  .red {
+    &:hover {
+      background: #fe5f55;
+    }
+  }
+
+  .green {
+    &:hover {
+      background: #777da7;
+    }
+  }
+
+  .blue {
+    &:hover {
+      background: #94c9a9;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Pagesection {
+    section,
+    a {
+      h1 {
+        margin-left: 20px;
+        font-size: 30px;
+      }
+    }
+  }
+}

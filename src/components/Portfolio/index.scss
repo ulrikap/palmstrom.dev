@@ -1,0 +1,66 @@
+.Portfolio-container {
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  .Portfolio {
+    //opacity: 0;
+    //animation: fadePortfolio 0.5s 0.2s linear forwards;
+    .backlink {
+      text-align: left;
+
+      padding-left: 10px;
+      padding-top: 10px;
+
+      a {
+        font-size: 20px;
+        text-decoration: underline;
+      }
+    }
+    h1 {
+      font-size: 60px;
+      color: white;
+      font-weight: 100;
+    }
+
+    section {
+      display: grid;
+    }
+  }
+  .exiting {
+    animation: fadeOutPortfolio 0.2s linear forwards;
+  }
+}
+
+@keyframes fadePortfolio {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutPortfolio {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.shapes {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+
+  div {
+    background: white;
+    height: 100vh;
+    transition: background-color 1s;
+  }
+}

@@ -1,0 +1,74 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo-container {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+
+    h1 {
+      margin-left: 50px;
+      font-family: Raleway, sans-serif;
+      font-size: 25px;
+      flex-grow: 0;
+      white-space: nowrap;
+    }
+
+    h2 {
+      margin-right: 50px;
+      font-family: Raleway Dots, sans-serif;
+      font-size: 25px;
+      flex-grow: 0;
+      white-space: nowrap;
+      font-weight: 800;
+    }
+
+    .separator {
+      display: block;
+      color: black;
+      height: 100%;
+      width: 5px;
+      margin: 10px;
+      border-left: 1px solid black;
+    }
+
+    .title-container {
+      display: flex;
+      justify-content: center;
+      p {
+        margin: 0 15px;
+      }
+    }
+
+    .red {
+      color: tomato;
+    }
+
+    .green {
+      color: green;
+    }
+
+    .blue {
+      color: blue;
+    }
+
+    .orange {
+      color: orange;
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+
+    li {
+      margin: 0 5px;
+    }
+  }
+}

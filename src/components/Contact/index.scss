@@ -1,0 +1,24 @@
+footer {
+  width: 100%;
+  text-align: left;
+
+  h2 {
+    margin-left: 50px;
+    font-weight: 100;
+  }
+
+  .social {
+    display: flex;
+    margin: 0 0 50px 50px;
+    overflow: hidden;
+
+    a {
+      margin-right: 10px;
+      transition: 0.2s ease;
+
+      &:hover {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
