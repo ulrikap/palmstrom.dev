@@ -6,46 +6,30 @@ import Contact from "../Contact/";
 import anime from "animejs/lib/anime.es.js";
 
 function Frontpage() {
+  const colors = ["#fe5f55", "#777da7", "#94c9a9"];
   let tl = anime.timeline({
-    easing: "easeOutExpo",
-    duration: 750
+    easing: "easeOutExpo"
   });
 
   tl.add({
     targets: ".shapes div",
-    width: "100%",
-    backgroundColor: "rgb(197, 197, 255)",
-    delay: anime.stagger(100)
+    translateX: function() {
+      return anime.random(10, 90) + "vw";
+    },
+    translateY: function() {
+      return anime.random(10, 90) + "vh";
+    },
+    scale: function() {
+      return anime.random(10, 20) / 10;
+    },
+    rotate: function() {
+      return anime.random(-360, 360);
+    },
+    duration: function() {
+      return anime.random(1000, 5000);
+    },
+    delay: anime.stagger(200)
   });
-
-  tl.add({
-    targets: ".shapes div",
-    width: "90%",
-    backgroundColor: "rgb(235, 235, 255)"
-  });
-
-  let rotate = () =>
-    anime({
-      targets: ".shapes",
-      scaleY: "2",
-      scaleX: "2",
-      translateX: "40%",
-      rotate: "45deg",
-      duration: 5000,
-      autoplay: true
-    });
-  setTimeout(() => {
-    rotate();
-  }, 2000);
-
-  let slide = percent => {
-    anime({
-      targets: ".shapes",
-      translateX: percent,
-      //Use 20%-40%
-      duration: 3000
-    });
-  };
 
   return (
     <div className="Frontpage-container">
@@ -57,17 +41,6 @@ function Frontpage() {
         <Pagesection title="Cyber security analyst" blue link="/infosec" />
       </div>
       <Contact />
-      <div className="shapes">
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
     </div>
   );
 }

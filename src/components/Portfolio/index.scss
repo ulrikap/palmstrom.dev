@@ -53,14 +53,3 @@
     opacity: 0;
   }
 }
-
-.shapes {
-  display: grid;
-  grid-template-columns: repeat(10, auto);
-
-  div {
-    background: white;
-    height: 100vh;
-    transition: background-color 1s;
-  }
-}

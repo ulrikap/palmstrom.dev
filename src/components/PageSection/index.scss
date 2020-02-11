@@ -8,17 +8,13 @@
     align-items: center;
     width: 100%;
     text-align: left;
-    transition: 0.3s;
+    transition: 0.2s;
     cursor: pointer;
 
     h1 {
       font-size: 40px;
-      font-weight: 200;
+      font-weight: 800;
       margin-left: 150px;
-    }
-
-    &:hover {
-      transform: scale(1.01);
     }
   }
 
@@ -32,19 +28,19 @@
 
   .red {
     &:hover {
-      background: #fe5f55;
+      color: #fe5f55;
     }
   }
 
   .green {
     &:hover {
-      background: #777da7;
+      color: #777da7;
     }
   }
 
   .blue {
     &:hover {
-      background: #94c9a9;
+      color: #94c9a9;
     }
   }
 }
