@@ -1,0 +1,43 @@
+.shapes-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  .shapes {
+    position: absolute;
+    left: -30px;
+
+    .circle {
+      position: absolute;
+      display: block;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      background-color: #bbb;
+      display: inline-block;
+      justify-self: stretch;
+    }
+
+    .square {
+      position: absolute;
+      display: block;
+      height: 25px;
+      width: 25px;
+      background-color: #bbb;
+      display: inline-block;
+      justify-self: stretch;
+    }
+
+    .triangle {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 12.5px solid transparent;
+      border-right: 12.5px solid transparent;
+      border-bottom: 12.5px solid transparent;
+    }
+  }
+}
