@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./index.scss";
+import { useHistory } from "react-router-dom";
 
 const Pagesection = ({
   title,
@@ -10,26 +10,30 @@ const Pagesection = ({
   green,
   blue,
   link,
-  onHover
+  onHover,
+  setExiting
 }) => {
+  const history = useHistory();
   const color =
     (red ? "red" : "") || (green ? "green" : "") || (blue ? "blue" : "");
 
   const layout = link ? (
-    <Link
-      className={(disabled ? "disabled " : "") + color}
-      to={{ pathname: link }}
-    >
-      <h1>{title}</h1>
-      <img src={photo} />
-    </Link>
+    <section className={disabled ? "disabled " : ""}>
+      <h1
+        className={"titletext " + color}
+        onClick={() => {
+          setExiting(true);
+          setTimeout(() => history.push(link), 400);
+        }}
+      >
+        {title}
+      </h1>
+      {/* <img src={photo} /> */}
+    </section>
   ) : (
-    <section
-      className={(disabled ? "disabled " : "") + color}
-      onMouseOver={onHover}
-    >
-      <h1>{title}</h1>
-      <img src={photo} />
+    <section className={disabled ? "disabled " : ""} onMouseOver={onHover}>
+      <h1 className={"titletext " + color}>{title}</h1>
+      {/* <img src={photo} /> */}
     </section>
   );
 

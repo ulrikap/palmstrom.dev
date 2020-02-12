@@ -12,8 +12,8 @@ const Contact = () => {
         </b>
       </h2>
       <div className="social">
-        <a href="">LinkedIn</a>
-        <a href="">Facebook</a>
+        <a href="www.linkedin.com">LinkedIn</a>
+        <a href="www.facebook.com">Facebook</a>
       </div>
     </footer>
   );

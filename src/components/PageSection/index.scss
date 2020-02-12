@@ -9,17 +9,19 @@
     width: 100%;
     text-align: left;
     transition: 0.2s;
-    cursor: pointer;
 
     h1 {
       font-size: 40px;
       font-weight: 800;
       margin-left: 150px;
+      cursor: pointer;
     }
   }
 
   .disabled {
-    cursor: default;
+    h1 {
+      cursor: default;
+    }
     &:hover {
       background: none;
       transform: none;
