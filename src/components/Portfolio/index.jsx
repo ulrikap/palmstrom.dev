@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./index.scss";
+import "./transition.scss";
 
 const BlockContent = require("@sanity/block-content-to-react");
 
@@ -29,16 +31,12 @@ const Portfolio = ({ color, client, title }) => {
     })();
   }, []);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
-    <div className="Portfolio-container">
-      <main
-        style={{ background: color ? color : "" }}
-        className={"Portfolio " + (exiting ? "exiting" : "")}
-      >
+    <div
+      className="Portfolio-container"
+      style={{ background: color ? color : "" }}
+    >
+      <main className={"Portfolio " + (exiting ? "exiting" : "")}>
         <div className="backlink">
           <button
             onClick={() => {
@@ -51,19 +49,23 @@ const Portfolio = ({ color, client, title }) => {
         </div>
         <h1>{title}</h1>
         <section>
-          <ul>
-            {data &&
-              data.map(elem => {
-                console.log(elem);
-                return (
-                  <li>
-                    <h1>{elem.title}</h1>
-                    <h2>{elem.employer}</h2>
-                    <BlockContent blocks={elem.body} />
-                  </li>
-                );
-              })}
-          </ul>
+          <TransitionGroup>
+            <CSSTransition classNames="portfolio" key={data} timeout={500}>
+              <ul>
+                {data &&
+                  data.map(elem => {
+                    console.log(elem);
+                    return (
+                      <li>
+                        <h1>{elem.title}</h1>
+                        <h2>{elem.employer}</h2>
+                        <BlockContent blocks={elem.body} />
+                      </li>
+                    );
+                  })}
+              </ul>
+            </CSSTransition>
+          </TransitionGroup>
         </section>
       </main>
     </div>
