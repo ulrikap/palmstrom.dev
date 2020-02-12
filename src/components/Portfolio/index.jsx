@@ -2,13 +2,36 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./index.scss";
 
-const Portfolio = ({ color, endpoint, title }) => {
+const BlockContent = require("@sanity/block-content-to-react");
+
+const Portfolio = ({ color, client, title }) => {
   const [exiting, setExiting] = useState(false);
+  const [data, setData] = useState(undefined);
   const history = useHistory();
 
   useEffect(() => {
-    //Fetch data from sanity
+    const location = history.location.pathname;
+    const project = () => {
+      switch (location) {
+        case "/uxdesign":
+          return "uxProject";
+        case "/developer":
+          return "developerProject";
+        case "/infosec":
+          return "infosecProject";
+      }
+    };
+
+    const query = `*[_type == '${project()}']`;
+    (async () => {
+      const data = await client.fetch(query);
+      setData(data);
+    })();
   }, []);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <div className="Portfolio-container">
@@ -29,9 +52,17 @@ const Portfolio = ({ color, endpoint, title }) => {
         <h1>{title}</h1>
         <section>
           <ul>
-            {
-              //Render list here
-            }
+            {data &&
+              data.map(elem => {
+                console.log(elem);
+                return (
+                  <li>
+                    <h1>{elem.title}</h1>
+                    <h2>{elem.employer}</h2>
+                    <BlockContent blocks={elem.body} />
+                  </li>
+                );
+              })}
           </ul>
         </section>
       </main>

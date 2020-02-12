@@ -6,6 +6,13 @@ import "./App.scss";
 import Frontpage from "./components/Frontpage";
 import Portfolio from "./components/Portfolio";
 
+const sanityClient = require("@sanity/client");
+const client = sanityClient({
+  projectId: "pm66g995",
+  dataset: "production",
+  useCdn: false // `false` if you want to ensure fresh data
+});
+
 const App = () => {
   const loct = useLocation();
   return (
@@ -24,13 +31,21 @@ const App = () => {
                   <Route
                     path="/uxdesign"
                     component={() => (
-                      <Portfolio title="UX design" color={"#fe5f55"} />
+                      <Portfolio
+                        title="UX design"
+                        color={"#fe5f55"}
+                        client={client}
+                      />
                     )}
                   />
                   <Route
                     path="/developer"
                     component={() => (
-                      <Portfolio title="Developer" color={"#777da7"} />
+                      <Portfolio
+                        title="Developer"
+                        color={"#777da7"}
+                        client={client}
+                      />
                     )}
                   />
                   <Route
@@ -39,6 +54,7 @@ const App = () => {
                       <Portfolio
                         title="Information Security"
                         color={"#94c9a9"}
+                        client={client}
                       />
                     )}
                   />

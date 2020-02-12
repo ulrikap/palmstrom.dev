@@ -3,7 +3,7 @@ import "./index.scss";
 import Header from "../Header/index";
 import Pagesection from "../PageSection/";
 import Contact from "../Contact/";
-import Shapes from "../Shapes/";
+import Shapes from "../../animationComponents/Shapes";
 
 function Frontpage() {
   const [exiting, setExiting] = useState(false);

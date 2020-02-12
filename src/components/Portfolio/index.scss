@@ -11,9 +11,8 @@
     //animation: fadePortfolio 0.5s 0.2s linear forwards;
     .backlink {
       text-align: left;
-
-      padding-left: 10px;
-      padding-top: 10px;
+      padding-left: 50px;
+      padding-top: 50px;
 
       a {
         font-size: 20px;
@@ -29,9 +28,47 @@
     section {
       display: grid;
     }
+
+    ul {
+      list-style-type: none;
+      display: grid;
+      grid-auto-columns: 1fr;
+      padding: 50px;
+      li {
+        text-align: left;
+        &:nth-child(even) {
+          text-align: right;
+        }
+      }
+    }
   }
   .exiting {
     animation: fadeOutPortfolio 0.2s linear forwards;
+  }
+
+  button {
+    border-radius: 0px 0px 5px 5px;
+    background: #cb4e4e;
+    color: #fff;
+    box-shadow: 0 6px #ab3c3c;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    padding: 25px 80px;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 3px #ab3c3c;
+      transform: translateY(3px);
+    }
   }
 }
 
