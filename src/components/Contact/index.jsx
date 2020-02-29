@@ -12,8 +12,12 @@ const Contact = () => {
         </b>
       </h2>
       <div className="social">
-        <a href="www.linkedin.com">LinkedIn</a>
-        <a href="www.facebook.com">Facebook</a>
+        <a href="www.linkedin.com" target="_blank">
+          LinkedIn
+        </a>
+        <a href="www.facebook.com" target="_blank">
+          Facebook
+        </a>
       </div>
     </footer>
   );

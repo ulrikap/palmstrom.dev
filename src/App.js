@@ -27,7 +27,6 @@ const App = () => {
                 timeout={500}
               >
                 <Switch location={location}>
-                  <Route exact path="/" component={() => <Frontpage />} />
                   <Route
                     path="/uxdesign"
                     component={() => (
@@ -58,6 +57,7 @@ const App = () => {
                       />
                     )}
                   />
+                  <Route component={() => <Frontpage />} />
                 </Switch>
               </CSSTransition>
             </TransitionGroup>

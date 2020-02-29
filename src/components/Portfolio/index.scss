@@ -8,6 +8,27 @@
   left: 0;
 
   .Portfolio {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+
+    section {
+      flex: 1;
+      min-height: 80vh;
+      max-height: 80vh;
+    }
+
+    .portfolio-title-container {
+      max-width: 700px;
+      h1 {
+        font-size: 60px;
+      }
+    }
+
+    .portfolio-content {
+      background: white;
+    }
+
     .backlink {
       text-align: left;
       padding-left: 50px;
@@ -18,65 +39,28 @@
         text-decoration: underline;
       }
     }
-    h1 {
-      font-size: 60px;
-      color: white;
-      font-weight: 100;
-    }
-
-    section {
-      display: grid;
-    }
-
     ul {
       list-style-type: none;
-      display: flex;
-      flex-direction: column;
-      padding: 50px;
+      display: grid;
       margin: 0;
+      overflow-y: scroll;
+      max-height: 80vh;
       li {
         text-align: left;
-        padding-bottom: 50px;
         border-bottom: 0.5px solid black;
-        &:nth-child(even) {
-          text-align: right;
-          p {
-            margin-left: auto;
-          }
+        min-height: 40vh;
+        h1 {
+          font-size: 40px;
+          font-weight: 100;
         }
         p {
-          max-width: 50vw;
+          max-width: 50%;
         }
       }
     }
   }
   .exiting {
     animation: fadeOutPortfolio 0.2s linear forwards;
-  }
-
-  button {
-    border-radius: 0px 0px 5px 5px;
-    background: #cb4e4e;
-    color: #fff;
-    box-shadow: 0 6px #ab3c3c;
-    border: none;
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    cursor: pointer;
-    padding: 25px 80px;
-    margin: 15px 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    outline: none;
-    position: relative;
-    transition: all 0.3s;
-
-    &:hover {
-      box-shadow: 0 3px #ab3c3c;
-      transform: translateY(3px);
-    }
   }
 }
 
