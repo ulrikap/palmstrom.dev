@@ -1,3 +1,5 @@
+$screenwidth: 1200px;
+
 .Portfolio-container {
   min-height: 100vh;
   height: 100%;
@@ -7,21 +9,80 @@
   right: 0;
   left: 0;
 
+  .backlink {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    text-align: left;
+    button {
+      border: 2px solid #000;
+      color: #000;
+      overflow: hidden;
+      font-family: inherit;
+      font-size: inherit;
+      background: none;
+      cursor: pointer;
+      padding: 15px 50px;
+      display: inline-block;
+      margin: 0px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      outline: none;
+      position: relative;
+
+      &:hover::before {
+        left: 0px;
+      }
+
+      &::before {
+        content: url("./../../assets/next.svg");
+        z-index: -1;
+        transition: 0.1s ease-in-out;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: -40px;
+        display: block;
+        width: 20px;
+        transform: scaleX(-1);
+        padding: 15px;
+      }
+    }
+  }
+
   .Portfolio {
     display: flex;
     flex-direction: row;
-    margin: 50px;
+    margin: 90px 50px 50px 50px;
+
+    @media screen and (max-width: $screenwidth) {
+      flex-direction: column;
+    }
 
     section {
       flex: 1;
       min-height: 80vh;
       max-height: 80vh;
+
+      @media screen and (max-width: $screenwidth) {
+        min-height: 20vh;
+        max-height: 100vh;
+      }
     }
 
     .portfolio-title-container {
-      max-width: 700px;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
       h1 {
-        font-size: 60px;
+        font-size: 100px;
+        @media screen and (max-width: $screenwidth) {
+          font-size: 50px;
+        }
+        user-select: none;
+        color: white;
       }
     }
 
@@ -29,21 +90,16 @@
       background: white;
     }
 
-    .backlink {
-      text-align: left;
-      padding-left: 50px;
-      padding-top: 50px;
-
-      a {
-        font-size: 20px;
-        text-decoration: underline;
-      }
-    }
     ul {
       list-style-type: none;
       display: grid;
       margin: 0;
       overflow-y: scroll;
+      @media screen and (max-width: $screenwidth) {
+        overflow-y: unset;
+        padding: 0;
+      }
+      overflow-y: default;
       max-height: 80vh;
       li {
         text-align: left;
@@ -55,6 +111,9 @@
         }
         p {
           max-width: 50%;
+          @media screen and (max-width: $screenwidth) {
+            max-width: none;
+          }
         }
       }
     }

@@ -33,21 +33,21 @@ const Portfolio = ({ color, client, title }) => {
 
   return (
     <div className="Portfolio-container">
+      <div className={"backlink " + (exiting ? "exiting" : null)}>
+        <button
+          onClick={() => {
+            setExiting(true);
+            setTimeout(() => history.push("/"), 400);
+          }}
+        >
+          Go back
+        </button>
+      </div>
       <main
         className={"Portfolio " + (exiting ? "exiting" : "")}
         style={{ background: color ? color : "" }}
       >
         <section className="portfolio-title-container">
-          <div className="backlink">
-            <button
-              onClick={() => {
-                setExiting(true);
-                setTimeout(() => history.push("/"), 400);
-              }}
-            >
-              {"<"}
-            </button>
-          </div>
           <h1>{title}</h1>
         </section>
         <section className="portfolio-content">
