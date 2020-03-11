@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./index.scss";
 import "./transition.scss";
+import Mesh from "../../animationComponents/Mesh";
 
 const BlockContent = require("@sanity/block-content-to-react");
 
@@ -24,7 +25,10 @@ const Portfolio = ({ color, client, title }) => {
       }
     };
 
-    const query = `*[_type == '${project()}']`;
+    const query = `*[_type == '${project()}']{
+      ...,
+      "imageUrl": mainImage.asset->url
+    }`;
     (async () => {
       const data = await client.fetch(query);
       setData(data);
@@ -56,12 +60,14 @@ const Portfolio = ({ color, client, title }) => {
               <ul>
                 {data &&
                   data.map(elem => {
-                    console.log(elem);
                     return (
                       <li>
                         <h1>{elem.title}</h1>
                         <h2>{elem.employer}</h2>
                         <BlockContent blocks={elem.body} />
+                        <a href={elem.url} target="_blank">
+                          <img src={elem.imageUrl} />
+                        </a>
                       </li>
                     );
                   })}

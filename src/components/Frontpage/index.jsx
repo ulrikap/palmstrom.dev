@@ -4,6 +4,7 @@ import Header from "../Header/index";
 import Pagesection from "../PageSection/";
 import Contact from "../Contact/";
 import Shapes from "../../animationComponents/Shapes";
+import Mesh from "../../animationComponents/Mesh";
 
 function Frontpage() {
   const [exiting, setExiting] = useState(false);
