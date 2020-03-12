@@ -1,17 +1,21 @@
 .stagger-visualizer {
   position: absolute;
-  top: 100px;
-  left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: fill;
-}
+  z-index: -1;
 
-.stagger-visualizer div {
-  width: 1px;
-  height: 0;
-  padding: 0;
-  background-color: grey;
+  height: 100vh;
+  width: 50vw;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  .square {
+    justify-self: center;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+  }
 }

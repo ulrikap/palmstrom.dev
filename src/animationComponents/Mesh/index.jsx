@@ -4,41 +4,56 @@ import "./index.scss";
 
 const Mesh = () => {
   const colors = ["#fe5f55", "#777da7", "#94c9a9"];
+  const numOfSquares = 18;
 
   useEffect(() => {
-    const staggerVisualizerEl = document.querySelector(".stagger-visualizer");
-    const fragment = document.createDocumentFragment();
-    const numOfElems = 20;
-    for (let i = 0; i < numOfElems; i++) {
-      fragment.appendChild(document.createElement("div"));
-    }
-
-    staggerVisualizerEl.appendChild(fragment);
-
-    const staggersAnimation = anime
+    let tl = anime
       .timeline({
-        targets: ".stagger-visualizer div",
-        easing: "easeInOutSine",
-        delay: anime.stagger(50),
-        loop: false,
-        autoplay: false
+        targets: ".stagger-visualizer .square",
+        autoplay: true,
+        loop: true
       })
       .add({
-        targets: ".stagger-visualizer div",
-        height: "150rem",
-        padding: "0.5rem",
-        duration: 500
-      })
-      .add({
-        targets: ".stagger-visualizer div",
-        height: "20rem",
-        duration: 500
+        targets: ".stagger-visualizer .square",
+        height: [
+          { value: "5px", easing: "easeInOutQuad", duration: 100 },
+          { value: "10px", easing: "easeInOutQuad", duration: 300 }
+        ],
+        scale: [
+          { value: 0, easing: "easeOutSine", duration: 500 },
+          { value: 1, easing: "easeInOutQuad", duration: 2500 }
+        ],
+        translateY: [
+          { value: "5vh", easing: "easeOutSine", duration: 500 },
+          { value: "-20vh", easing: "easeOutSine", duration: 500 },
+          { value: "2vh", easing: "easeOutSine", duration: 1500 },
+          { value: "0vh", easing: "easeOutQuint", duration: 500 }
+        ],
+        delay: anime.stagger(3000, { grid: [6, 5], from: "center" })
       });
 
-    staggersAnimation.play();
+    tl.play();
   }, []);
 
-  return <div className="stagger-visualizer"></div>;
+  const renderSquares = () => {
+    let list = [];
+    for (let i = 0; i < numOfSquares; i++) {
+      const num = Math.floor(Math.random() * colors.length);
+      list.push(
+        <div
+          className="square"
+          key={i}
+          style={{
+            background: colors[num]
+          }}
+          id={num}
+        />
+      );
+    }
+    return list;
+  };
+
+  return <div className="stagger-visualizer">{renderSquares()}</div>;
 };
 
 export default Mesh;

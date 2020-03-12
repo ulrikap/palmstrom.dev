@@ -34,7 +34,11 @@ function Frontpage() {
         />
       </div>
       <Contact />
-      <Shapes exiting={exiting} />
+      {Math.floor(Math.random() * 2) === 1 ? (
+        <Mesh exiting={exiting} />
+      ) : (
+        <Shapes exiting={exiting} />
+      )}
     </div>
   );
 }
