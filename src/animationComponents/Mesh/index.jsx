@@ -24,12 +24,12 @@ const Mesh = () => {
           { value: 1, easing: "easeInOutQuad", duration: 2500 }
         ],
         translateY: [
-          { value: "5vh", easing: "easeOutSine", duration: 500 },
-          { value: "-20vh", easing: "easeOutSine", duration: 500 },
-          { value: "2vh", easing: "easeOutSine", duration: 1500 },
-          { value: "0vh", easing: "easeOutQuint", duration: 500 }
+          { value: "5vh", easing: "easeOutSine", duration: 300 },
+          { value: "-20vh", easing: "easeOutSine", duration: 300 },
+          { value: "2vh", easing: "easeOutSine", duration: 1300 },
+          { value: "0vh", easing: "easeOutQuint", duration: 300 }
         ],
-        delay: anime.stagger(3000, { grid: [6, 5], from: "center" })
+        delay: anime.stagger(300, { grid: [3, 6], from: "last" })
       });
 
     tl.play();
