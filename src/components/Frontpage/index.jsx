@@ -4,41 +4,19 @@ import Header from "../Header/index";
 import Pagesection from "../PageSection/";
 import Contact from "../Contact/";
 import Shapes from "../../animationComponents/Shapes";
-import Mesh from "../../animationComponents/Mesh";
 
 function Frontpage() {
-  const [exiting, setExiting] = useState(false);
-
   return (
-    <div className={"Frontpage-container " + (exiting ? "exiting" : "")}>
+    <div className={"Frontpage-container"}>
       <Header />
       <div className="Frontpage">
-        <Pagesection
-          title="UX Designer,"
-          red
-          link="/uxdesign"
-          setExiting={setExiting}
-        />
-        <Pagesection
-          title="Developer"
-          green
-          link="/developer"
-          setExiting={setExiting}
-        />
+        <Pagesection title="UX Designer," red link="/uxdesign" />
+        <Pagesection title="Developer" green link="/developer" />
         <Pagesection title="and" disabled />
-        <Pagesection
-          title="Cyber security analyst"
-          blue
-          link="/infosec"
-          setExiting={setExiting}
-        />
+        <Pagesection title="Cyber security analyst" blue link="/infosec" />
       </div>
       <Contact />
-      {Math.floor(Math.random() * 2) === 1 ? (
-        <Mesh exiting={exiting} />
-      ) : (
-        <Shapes exiting={exiting} />
-      )}
+      <Shapes />
     </div>
   );
 }

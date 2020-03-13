@@ -10,8 +10,7 @@ const Pagesection = ({
   green,
   blue,
   link,
-  onHover,
-  setExiting
+  onHover
 }) => {
   const history = useHistory();
   const color =
@@ -19,13 +18,7 @@ const Pagesection = ({
 
   const layout = link ? (
     <section className={disabled ? "disabled " : ""}>
-      <h1
-        className={"titletext " + color}
-        onClick={() => {
-          setExiting(true);
-          setTimeout(() => history.push(link), 400);
-        }}
-      >
+      <h1 className={"titletext " + color} onClick={() => history.push(link)}>
         {title}
       </h1>
       {/* <img src={photo} /> */}

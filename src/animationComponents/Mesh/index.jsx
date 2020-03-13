@@ -44,7 +44,7 @@ const Mesh = () => {
           className="square"
           key={i}
           style={{
-            background: colors[num]
+            background: colors[2]
           }}
           id={num}
         />

@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./index.scss";
-import "./transition.scss";
-import Mesh from "../../animationComponents/Mesh";
 
 const BlockContent = require("@sanity/block-content-to-react");
 
 const Portfolio = ({ color, client, title }) => {
-  const [exiting, setExiting] = useState(false);
   const [data, setData] = useState(undefined);
   const history = useHistory();
 
@@ -37,43 +33,31 @@ const Portfolio = ({ color, client, title }) => {
 
   return (
     <div className="Portfolio-container">
-      <div className={"backlink " + (exiting ? "exiting" : null)}>
-        <button
-          onClick={() => {
-            setExiting(true);
-            setTimeout(() => history.push("/"), 400);
-          }}
-        >
-          Go back
-        </button>
+      <div className={"backlink"}>
+        <button onClick={() => history.push("/")}>Go back</button>
       </div>
-      <main
-        className={"Portfolio " + (exiting ? "exiting" : "")}
-        style={{ background: color ? color : "" }}
-      >
+      <main className={"Portfolio"} style={{ background: color ? color : "" }}>
         <section className="portfolio-title-container">
           <h1>{title}</h1>
         </section>
         <section className="portfolio-content">
-          <TransitionGroup>
-            <CSSTransition classNames="portfolio" key={data} timeout={500}>
-              <ul>
-                {data &&
-                  data.map(elem => {
-                    return (
-                      <li>
-                        <h1>{elem.title}</h1>
-                        <h2>{elem.employer}</h2>
-                        <BlockContent blocks={elem.body} />
-                        <a href={elem.url} target="_blank">
-                          <img src={elem.imageUrl} />
-                        </a>
-                      </li>
-                    );
-                  })}
-              </ul>
-            </CSSTransition>
-          </TransitionGroup>
+          <ul>
+            {data &&
+              data.map(elem => {
+                return (
+                  <li>
+                    <div className="list-item-wrapper">
+                      <h1>{elem.title}</h1>
+                      <h2>{elem.employer}</h2>
+                      <BlockContent blocks={elem.body} />
+                      <a href={elem.url} target="_blank">
+                        <img src={elem.imageUrl} />
+                      </a>
+                    </div>
+                  </li>
+                );
+              })}
+          </ul>
         </section>
       </main>
     </div>
