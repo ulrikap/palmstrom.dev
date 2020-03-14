@@ -9,7 +9,6 @@ function Header() {
         <h1>
           <Link to="/">Ulrik Palmstrøm</Link>
         </h1>
-        {/*<h2>Click categories to see some work I've done</h2>*/}
       </div>
     </header>
   );

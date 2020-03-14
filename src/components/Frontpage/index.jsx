@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.scss";
+
 import Header from "../Header/index";
 import Pagesection from "../PageSection/";
 import Contact from "../Contact/";
@@ -13,7 +14,7 @@ function Frontpage() {
         <Pagesection title="UX Designer," red link="/uxdesign" />
         <Pagesection title="Developer" green link="/developer" />
         <Pagesection title="and" disabled />
-        <Pagesection title="Cyber security analyst" blue link="/infosec" />
+        <Pagesection title="Cyber Security Researcher" blue link="/infosec" />
       </div>
       <Contact />
       <Shapes />

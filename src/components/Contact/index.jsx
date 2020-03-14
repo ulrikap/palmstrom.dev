@@ -3,6 +3,9 @@ import "./index.scss";
 
 const Contact = () => {
   const mail = "ulrik@palmstrom.dev";
+  const linkedIn = "https://www.linkedin.com";
+  const facebook = "https://www.facebook.com";
+
   return (
     <footer>
       <h2>
@@ -12,10 +15,10 @@ const Contact = () => {
         </b>
       </h2>
       <div className="social">
-        <a href="https://www.linkedin.com" target="_blank">
+        <a href={linkedIn} target="_blank">
           LinkedIn
         </a>
-        <a href="https://www.facebook.com" target="_blank">
+        <a href={facebook} target="_blank">
           Facebook
         </a>
       </div>

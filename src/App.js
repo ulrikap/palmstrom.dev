@@ -1,8 +1,10 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 import "./transition.css";
 import "./App.scss";
+
 import Frontpage from "./components/Frontpage";
 import Portfolio from "./components/Portfolio";
 
