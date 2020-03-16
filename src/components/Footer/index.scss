@@ -1,0 +1,20 @@
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 0%;
+  background: red;
+  transition: 0.3s ease-in-out;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    li {
+      margin: 10px;
+    }
+  }
+}
+.show {
+  height: 20%;
+}

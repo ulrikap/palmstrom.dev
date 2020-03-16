@@ -5,6 +5,7 @@ import Header from "../Header/index";
 import Pagesection from "../PageSection/";
 import Contact from "../Contact/";
 import Shapes from "../../animationComponents/Shapes";
+import { useState } from "react";
 
 function Frontpage() {
   return (

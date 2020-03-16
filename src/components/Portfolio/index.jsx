@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import anime from "animejs/lib/anime.es.js";
+
 import "./index.scss";
 
 const BlockContent = require("@sanity/block-content-to-react");
@@ -41,7 +43,7 @@ const Portfolio = ({ color, client, title }) => {
           <h1>{title}</h1>
         </section>
         <section className="portfolio-content">
-          <ul>
+          <ul id="portfolio-list">
             {data &&
               data.map(elem => {
                 return (

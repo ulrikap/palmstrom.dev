@@ -1,0 +1,19 @@
+.footer-enter {
+  height: 0%;
+  transition: 500ms ease-in-out;
+}
+
+.footer-enter-active {
+  height: 100%;
+  transition: 500ms ease-in-out;
+}
+
+.footer-exit {
+  height: 100%;
+  transition: 300ms ease-in-out;
+}
+
+.footer-exit-active {
+  height: 0%;
+  transition: 300ms ease-in-out;
+}

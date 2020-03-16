@@ -1,8 +1,10 @@
 header {
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 
   .logo-container {
     text-align: center;
@@ -63,12 +65,29 @@ header {
     }
   }
 
-  ul {
-    display: flex;
-    list-style-type: none;
+  #burger-container {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    img {
+      height: 40px;
+    }
 
-    li {
-      margin: 0 5px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    div.burger-span {
+      display: block;
+      content: "";
+      height: 3px;
+      width: 35px;
+      background: black;
+      margin: 8px 0;
+
+      &.span2 .hidden-list {
+        color: white;
+      }
     }
   }
 }
