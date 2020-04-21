@@ -15,10 +15,10 @@ const Contact = () => {
         </b>
       </h2>
       <div className="social">
-        <a href={linkedIn} target="_blank">
+        <a href={linkedIn} rel="noopener noreferrer" target="_blank">
           LinkedIn
         </a>
-        <a href={facebook} target="_blank">
+        <a href={facebook} rel="noopener noreferrer" target="_blank">
           Facebook
         </a>
       </div>

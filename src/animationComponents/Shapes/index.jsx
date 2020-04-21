@@ -20,7 +20,7 @@ const Shapes = () => {
               className="square shape"
               style={{
                 backgroundColor:
-                  colors[Math.floor(Math.random() * colors.length)]
+                  colors[Math.floor(Math.random() * colors.length)],
               }}
               key={i}
             />
@@ -31,7 +31,7 @@ const Shapes = () => {
               className="circle shape"
               style={{
                 backgroundColor:
-                  colors[Math.floor(Math.random() * colors.length)]
+                  colors[Math.floor(Math.random() * colors.length)],
               }}
               key={i}
             />
@@ -40,6 +40,7 @@ const Shapes = () => {
       }
       setShapes(elements);
     })();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -48,24 +49,24 @@ const Shapes = () => {
       anime({
         targets: ".shapes div",
         easing: "easeOutCirc",
-        translateX: function() {
+        translateX: function () {
           return anime.random(10, 90) + "vw";
         },
-        translateY: function() {
+        translateY: function () {
           return anime.random(10, 90) + "vh";
         },
-        scale: function() {
+        scale: function () {
           return anime.random(10, 30) / 10;
         },
-        rotate: function() {
+        rotate: function () {
           return anime.random(-360, 360);
         },
-        duration: function() {
+        duration: function () {
           return anime.random(1000, 3000);
         },
         delay: anime.stagger(50),
         loop: false,
-        autoplay: true
+        autoplay: true,
       });
     }
   }, [shapes]);
@@ -78,13 +79,13 @@ const Shapes = () => {
         anime({
           targets: ".shapes div",
           easing: "easeOutExpo",
-          translateX: function() {
+          translateX: function () {
             return anime.random(-150, 150) + "vw";
           },
-          translateY: function() {
+          translateY: function () {
             return anime.random(-150, 150) + "vh";
           },
-          duration: 5000
+          duration: 5000,
         });
       });
     }

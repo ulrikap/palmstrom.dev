@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import anime from "animejs/lib/anime.es.js";
 
 import "./index.scss";
 
@@ -20,6 +19,8 @@ const Portfolio = ({ color, client, title }) => {
           return "developerProject";
         case "/infosec":
           return "infosecProject";
+        default:
+          return "";
       }
     };
 
@@ -31,6 +32,8 @@ const Portfolio = ({ color, client, title }) => {
       const data = await client.fetch(query);
       setData(data);
     })();
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -45,15 +48,19 @@ const Portfolio = ({ color, client, title }) => {
         <section className="portfolio-content">
           <ul id="portfolio-list">
             {data &&
-              data.map(elem => {
+              data.map((elem) => {
                 return (
                   <li>
                     <div className="list-item-wrapper">
                       <h1>{elem.title}</h1>
                       <h2>{elem.employer}</h2>
                       <BlockContent blocks={elem.body} />
-                      <a href={elem.url} target="_blank">
-                        <img src={elem.imageUrl} />
+                      <a
+                        href={elem.url}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        <img src={elem.imageUrl} alt="nice pic yes" />
                       </a>
                     </div>
                   </li>
