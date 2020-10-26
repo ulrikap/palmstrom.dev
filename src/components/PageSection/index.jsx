@@ -1,25 +1,51 @@
 import React from "react";
-import "./index.scss";
-import { useHistory } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles, CircularProgress } from "@material-ui/core";
+import { mapStateToProps } from "./prepare.js";
+import { connect } from "react-redux";
+import store from "../../redux/store";
 
-const Pagesection = ({ title, disabled, red, green, blue, link, onHover }) => {
-  const history = useHistory();
-  const color =
-    (red ? "red" : "") || (green ? "green" : "") || (blue ? "blue" : "");
+const useStyles = makeStyles(() => ({
+  item: {
+    textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+  },
+}));
 
-  const layout = link ? (
-    <section className={disabled ? "disabled " : ""}>
-      <h1 className={"titletext " + color} onClick={() => history.push(link)}>
-        {title}
-      </h1>
-    </section>
-  ) : (
-    <section className={disabled ? "disabled " : ""} onMouseOver={onHover}>
-      <h1 className={"titletext " + color}>{title}</h1>
-    </section>
+const Pagesection = ({
+  text,
+  backgroundColor,
+  onclick,
+  id,
+  loading,
+  selectedPage,
+  ...rest
+}) => {
+  const classes = useStyles();
+  const isSelected = selectedPage.page === id;
+  const onClick = () => (isSelected ? null : store.dispatch(onclick(id)));
+  return (
+    <Grid
+      item
+      md={isSelected ? 12 : 6}
+      xs={12}
+      className={classes.item}
+      style={{
+        backgroundColor,
+        height: isSelected ? "100%" : "50%",
+        transition: "0.5s ease-in-out",
+      }}
+      onClick={onClick}
+    >
+      <Typography variant={"h3"}>{text}</Typography>
+      <br />
+      {loading && isSelected ? <CircularProgress /> : null}
+    </Grid>
   );
-
-  return <div className="Pagesection">{layout}</div>;
 };
 
-export default Pagesection;
+export default connect(mapStateToProps)(Pagesection);

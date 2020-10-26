@@ -1,45 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
+import { connect } from "react-redux";
+import { mapStateToProps } from "./prepare.js";
 
 import "./index.scss";
 
 const BlockContent = require("@sanity/block-content-to-react");
 
-const Portfolio = ({ color, client, title }) => {
-  const [data, setData] = useState(undefined);
-  const history = useHistory();
-
-  useEffect(() => {
-    const location = history.location.pathname;
-    const project = () => {
-      switch (location) {
-        case "/uxdesign":
-          return "uxProject";
-        case "/developer":
-          return "developerProject";
-        case "/infosec":
-          return "infosecProject";
-        default:
-          return "";
-      }
-    };
-
-    const query = `*[_type == '${project()}']{
-      ...,
-      "imageUrl": mainImage.asset->url
-    }`;
-    (async () => {
-      const data = await client.fetch(query);
-      setData(data);
-    })();
-
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+const Portfolio = ({ color, title, onBack, data }) => {
+  console.log("render");
   return (
     <div className="Portfolio-container">
       <div className={"backlink"}>
-        <button onClick={() => history.push("/")}>Go back</button>
+        <button onClick={onBack}>Go back</button>
       </div>
       <main className={"Portfolio"} style={{ background: color ? color : "" }}>
         <section className="portfolio-title-container">
@@ -73,4 +45,4 @@ const Portfolio = ({ color, client, title }) => {
   );
 };
 
-export default Portfolio;
+export default connect(mapStateToProps)(Portfolio);
